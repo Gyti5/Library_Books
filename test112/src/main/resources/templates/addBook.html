@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Library</title>
+</head>
+<body>
+    <div>
+        <form action="#", th:action="@{/saveBook}" th:object="${book}" method="GET">
+            author name: <input type="text" name="a_name" th:field="*{author_name}"/><br/>
+            author surname: <input type="text" name="a_surname" th:field="*{author_surname}"/><br/>
+            book name <input type="text" name="name" th:field="*{name}"/><br/>
+            years: <input type="text" name="years" th:field="*{year_released}"/><br/>
+
+            <div>
+                <select th:field="*{library.id}">
+                    <option
+                            th:each="library:${libraries}"
+                            th:value="${library.id}"
+                            th:text="${library.name}" >
+                    </option>
+                </select>
+            </div>
+
+
+            <button name="submit" type="submit" value="0">Submit</button>
+        </form>
+
+
+    </div>
+</body>
+</html>
